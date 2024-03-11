@@ -17,6 +17,7 @@
         url: http://clienterhel7.s2linux.local/pub
         method: GET
         status_code: 200
+        return_content: true
       register: retorno
 
     - name: Testa
