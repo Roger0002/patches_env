@@ -10,5 +10,5 @@
 
     - name: Mostra os facts coletados anteriormente
       ansible.builtin.debug:
-        var: ansible_facts.services."httpd.service"
+        var: ansible_facts.services.httpd.service
 
