@@ -1,12 +1,12 @@
 ---
-# Playbook de teste: Validação de aplicações/banco
+# Playbook de teste: Validação do banco
 
 - name: Play que valida o banco
   hosts: clienterhel8.s2linux.local
-  gather_facts: false
+  gather_facts: true
   tasks:
-    - name: Verifica o status dos processos da máquina
-      ansible.builtin.service_facts:
+#    - name: Verifica o status dos processos da máquina
+#      ansible.builtin.service_facts:
 
     - name: Gera um erro caso o daemon do postgresql não esteja no ar
       ansible.builtin.assert:
