@@ -1,11 +1,11 @@
 ---
 - name: Play que realiza a atualização de SO das máquinas de aplicação e banco
-  hosts: clienterhel[7-9].s2linux.local
+  hosts: clienterhel[7-8].s2linux.local
   become: true
   gather_facts: false
   tasks:
     - name: Atualiza o SO
-      ansible.builtin.dnf:
+      ansible.builtin.yum:
         name: "*"
         state: latest
       notify: "Reboot Action"
