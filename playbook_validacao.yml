@@ -2,13 +2,13 @@
 # Playbook de teste: Validação de aplicações/banco
 
 - name: Play que valida a aplicação
-  hosts: clienterhel7.s2linux.local
+  hosts: clienterhel*.s2linux.local
   gather_facts: false
   tasks:
     - name: Verifica o status do processo do apache
       ansible.builtin.service_facts:
 
-   - name: Mostra os facts coletados anteriormente
-     ansible.builtin.debug:
-       var: ansible_facts.services
+    - name: Mostra os facts coletados anteriormente
+      ansible.builtin.debug:
+        var: ansible_facts.services
 
