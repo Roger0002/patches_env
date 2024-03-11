@@ -22,4 +22,4 @@
         that:
           - ansible_facts.services["httpd.service"].state == "running"
           - '"Aplicação do Roger" in retorno.content'
-
+...

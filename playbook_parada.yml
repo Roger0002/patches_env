@@ -1,0 +1,22 @@
+---
+# Playbook que para tudo
+
+- name: Play que para a aplicação
+  hosts: clienterhel7.s2linux.local
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Para o daemon do item
+      ansible.builtin.systemd_service:
+        name: "httpd.service"
+        state: stopped
+
+- name: Play que para o banco
+  hosts: clienterhel8.s2linux.local   
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Para o daemon do postgresql
+      ansible.builtin.systemd_service: 
+        name: "postgresql.service"
+        state: stopped
