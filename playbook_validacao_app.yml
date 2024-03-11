@@ -19,5 +19,6 @@
         status_code: 200
       register: retorno
 
-    - ansible.builin.debug:
+    - name: Testa
+      ansible.builin.debug:
         var: retorno
