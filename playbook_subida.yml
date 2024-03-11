@@ -1,17 +1,17 @@
 ---
-# Playbook que para tudo
+# Playbook que sobe tudo
 
-- name: Play que para a aplicação
+- name: Play que sobe a aplicação
   hosts: clienterhel7.s2linux.local
   become: true
   gather_facts: false
   tasks:
-    - name: Para o daemon do apache
+    - name: Sobe o daemon do apache
       ansible.builtin.systemd_service:
         name: "httpd.service"
-        state: "stopped"
+        state: "started"
 
-- name: Play que para o banco
+- name: Play que sobe o banco
   hosts: clienterhel8.s2linux.local   
   become: true
   gather_facts: false
@@ -19,5 +19,5 @@
     - name: Para o daemon do postgresql
       ansible.builtin.systemd_service: 
         name: "postgresql.service"
-        state: "stopped"
+        state: "started"
 ...
