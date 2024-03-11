@@ -17,11 +17,9 @@
         return_content: true
       register: retorno
 
-    - name: Gera um erro caso o daemon do apache não esteja no ar
-      vars:
-        ttt: "Aplicação do Roger"
+    - name: Gera um erro caso o daemon do apache não esteja no ar ou a string esperada não esteja no corpo da resposta
       ansible.builtin.assert:
         that:
           - ansible_facts.services["httpd.service"].state == "running"
-          - ttt in retorno.content
+          - '"Aplicação do Roger" in retorno.content'
 
