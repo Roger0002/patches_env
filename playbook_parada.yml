@@ -9,7 +9,7 @@
     - name: Para o daemon do item
       ansible.builtin.systemd_service:
         name: "httpd.service"
-        state: stopped
+        state: "stopped"
 
 - name: Play que para o banco
   hosts: clienterhel8.s2linux.local   
@@ -19,4 +19,4 @@
     - name: Para o daemon do postgresql
       ansible.builtin.systemd_service: 
         name: "postgresql.service"
-        state: stopped
+        state: "stopped"
