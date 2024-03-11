@@ -2,7 +2,7 @@
 # Playbook de teste: Validação de aplicações/banco
 
 - name: Play que valida a aplicação
-  hosts: clienterhel[7-9].s2linux.local
+  hosts: clienterhel7.s2linux.local
   gather_facts: false
   tasks:
     - name: Verifica o status do processo do apache
