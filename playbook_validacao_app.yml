@@ -18,8 +18,10 @@
       register: retorno
 
     - name: Gera um erro caso o daemon do apache não esteja no ar
+      vars:
+        ttt: "Aplicação do Roger"
       ansible.builtin.assert:
         that:
           - ansible_facts.services["httpd.service"].state == "running"
-          - "Aplicação do Roger" in retorno.content
+          - ttt in retorno.content
 
