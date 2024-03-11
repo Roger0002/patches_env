@@ -1,0 +1,23 @@
+---
+# Playbook que valida a aplicação
+
+- name: Play que valida a aplicação
+  hosts: clienterhel7.s2linux.local
+  gather_facts: false
+  tasks:
+    - name: Verifica o status dos processos da máquina
+      ansible.builtin.service_facts:
+
+    - name: Gera um erro caso o daemon do apache não esteja no ar
+      ansible.builtin.assert:
+        that: ansible_facts.services["httpd.service"].state == "running"
+
+    - name: Verifica a resposta da URL de teste
+      ansible.builtin.uri:
+        url: http://clienterhel7.s2linux.local/pub
+        method: GET
+        status_code: 200
+      register: retorno
+
+    - ansible.builin.debug:
+        var: retorno

@@ -5,8 +5,8 @@
   hosts: clienterhel8.s2linux.local
   gather_facts: true
   tasks:
-#    - name: Verifica o status dos processos da máquina
-#      ansible.builtin.service_facts:
+    - name: Verifica o status dos processos da máquina
+      ansible.builtin.service_facts:
 
     - name: Gera um erro caso o daemon do postgresql não esteja no ar
       ansible.builtin.assert:
