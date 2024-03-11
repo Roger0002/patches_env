@@ -2,13 +2,14 @@
 # Playbook de teste: Validação de aplicações/banco
 
 - name: Play que valida a aplicação
-  hosts: clienterhel7.s2linux.local
+  hosts: clienterhel8.s2linux.local
   gather_facts: false
   tasks:
-    - name: Verifica o status do processo do apache
+    - name: Verifica o status dos processos da máquina
       ansible.builtin.service_facts:
 
-    - name: Mostra os facts coletados anteriormente
+    - name: Mostra uma mensagem se o daemon do postgresql estiver no ar
       ansible.builtin.debug:
-        var: ansible_facts.services.httpd.service
+        msg: "Serviço do banco no ar"
+      when: ansible_facts.services["postgresql.service"].state == "running"
 
