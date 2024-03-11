@@ -20,5 +20,5 @@
       register: retorno
 
     - name: Testa
-      ansible.builin.debug:
+      ansible.builtin.debug:
         var: retorno
