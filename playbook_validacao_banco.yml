@@ -11,4 +11,8 @@
     - name: Gera um erro caso o daemon do postgresql não esteja no ar
       ansible.builtin.assert:
         that: ansible_facts.services["postgresql.service"].state == "running"
+
+    - name: Teste
+      ansible.builtin.debug:
+        msg: Mensagem {{ myex }}
 ...
