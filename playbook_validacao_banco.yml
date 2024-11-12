@@ -12,7 +12,5 @@
       ansible.builtin.assert:
         that: ansible_facts.services["postgresql.service"].state == "running"
 
-    - name: Teste
-      ansible.builtin.debug:
-        msg: Mensagem {{ myex }}
+
 ...
